@@ -9,19 +9,19 @@ import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import javax.json.JsonObject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import jakarta.json.JsonObject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
 
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.MediaType.APPLICATION_XML;
-import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_XML;
+import static jakarta.ws.rs.core.MediaType.TEXT_PLAIN;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @Testcontainers
 class GreetingsIT {
-    @Container static JeeContainer CONTAINER = JeeContainer.create()
+    @Container static JeeContainer CONTAINER = JeeContainer.create("wildfly:27.0.1.Final-jdk17")
         .withDeployment("target/ROOT.war");
 
     @Path("/greetings")
