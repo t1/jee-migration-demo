@@ -1,0 +1,18 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%r [test:%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <logger name="org.jboss.resteasy" level="INFO"/>
+    <logger name="org.xnio.nio" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+    <logger name="org.jboss.weld.Bootstrap" level="INFO"/>
+    <logger name="com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http" level="INFO"/>
+    <logger name="org.testcontainers.containers.output.WaitingConsumer" level="INFO"/>
+    <logger name="org.testcontainers.shaded.com.github.dockerjava" level="INFO"/>
+</configuration>
