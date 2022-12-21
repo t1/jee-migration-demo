@@ -2,6 +2,7 @@ package test;
 
 import com.example.jeemigrationdemo.Greeting;
 import com.github.t1.testcontainers.jee.JeeContainer;
+import com.example.jeemigrationdemo.XmlMessageBodyReaderWriter;
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -32,6 +34,9 @@ class GreetingsIT {
 
         @GET @Produces(APPLICATION_JSON)
         Greeting jsonGreeting();
+
+        @GET @Produces(APPLICATION_XML)
+        Greeting xmlGreeting();
     }
 
     Api api;
@@ -40,6 +45,7 @@ class GreetingsIT {
     void setUp() {
         api = RestClientBuilder.newBuilder()
             .baseUri(CONTAINER.baseUri())
+            .register(XmlMessageBodyReaderWriter.class)
             .build(Api.class);
     }
 
@@ -61,6 +67,14 @@ class GreetingsIT {
     @Test
     void shouldGetJsonGreeting() {
         var greeting = api.jsonGreeting();
+
+        then(greeting.getHello()).isEqualTo("Hello");
+        then(greeting.getWho()).isEqualTo("World");
+    }
+
+    @Test
+    void shouldGetXmlGreeting() {
+        var greeting = api.xmlGreeting();
 
         then(greeting.getHello()).isEqualTo("Hello");
         then(greeting.getWho()).isEqualTo("World");
