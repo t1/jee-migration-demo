@@ -17,7 +17,7 @@
 
         <junit.version>5.9.3</junit.version>
         <resteasy.version>6.2.4.Final</resteasy.version>
-        <resteasy.microprofile.version>2.1.1.Final</resteasy.microprofile.version>
+        <resteasy.microprofile.version>2.1.2.Final</resteasy.microprofile.version>
 
         <maven-test-plugins.version>3.1.2</maven-test-plugins.version>
     </properties>
