@@ -16,7 +16,7 @@
         <maven.compiler.source>11</maven.compiler.source>
 
         <junit.version>5.10.1</junit.version>
-        <resteasy.version>6.2.6.Final</resteasy.version>
+        <resteasy.version>6.2.7.Final</resteasy.version>
         <resteasy.microprofile.version>2.1.5.Final</resteasy.microprofile.version>
 
         <maven-test-plugins.version>3.2.5</maven-test-plugins.version>
