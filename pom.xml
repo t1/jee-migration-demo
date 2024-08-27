@@ -19,7 +19,7 @@
         <resteasy.version>6.2.10.Final</resteasy.version>
         <resteasy.microprofile.version>2.1.5.Final</resteasy.microprofile.version>
 
-        <maven-test-plugins.version>3.4.0</maven-test-plugins.version>
+        <maven-test-plugins.version>3.5.0</maven-test-plugins.version>
     </properties>
 
     <build>
